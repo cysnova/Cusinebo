@@ -1,7 +1,8 @@
 $medium-color: #d3ab55
 $main-color: #252424
+$light-color: #fff
 
-.btn
+@mixin button
     display: inline-block
     margin: 1.5rem
     padding: 0.8rem 2rem
@@ -12,6 +13,18 @@ $main-color: #252424
     color: $medium-color
     letter-spacing: 1px
 
+.btn
+    @include button
     &:hover
         background-color: $medium-color
         color: $main-color
+
+    &:last-child
+        margin-top: 0.8rem
+
+.card-overlay-btn
+    @include button
+    text-transform: uppercase
+    background-color: $light-color
+    font-weight: 200
+    border-radius: 30px

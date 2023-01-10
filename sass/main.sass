@@ -1,5 +1,8 @@
 @import 'utilities'
 @import 'config'
+@import 'item_grid'
+@import 'logo'
+
 *
     margin: 0
     padding: 0
@@ -13,6 +16,7 @@ h1
     font-size: 80px
     font-weight: 300
     color: $medium-color
+    padding: 0.5rem
 
 h2
     font-family: "Josefin Sans", sans-serif
@@ -31,37 +35,40 @@ h3
         height: 100vh
         position: relative
 
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            background-color: #000
+            opacity: 0.7
+            z-index: 3
+
     &-brand
-        display: flex
-        position: absolute
+        @include brand
         top: 3%
         left: 25%
-        text-align: left
 
         h1
-            font-size: 50px
-            font-family: "Josefin Sans", sans-serif
-            font-weight: 200
-            color: $light-color
-            padding-top: 2.5rem
+            @include brand-h1
 
         p
-            letter-spacing: 2px
+            @include brand-p
 
         .logo
-            padding: 1rem
+            @include brand-logo
 
             img
-                width: 110px
-                height: 110px
-                border: 3px solid $medium-color
-                border-radius: 50%
+                @include brand-logo-image
 
     &-banner
         position: absolute
         top: 80%
         left: 23%
         text-align: center
+        z-index: 9
 
         .main-heading
             color: $medium-color
@@ -69,3 +76,89 @@ h3
             font-size: 80px
             padding-top: 1rem
             padding-bottom: 1.8rem
+
+    &-about
+        position: relative
+        height: 80vh
+        display: grid
+        grid-template-columns: 1fr 3fr
+        text-align: center
+        padding: 0.5rem 0.5rem
+
+        margin: 0
+
+        .img
+            width: 30rem
+            height: auto
+            position: relative
+            top: 6rem
+            left: -10rem
+
+        h3
+            margin: 1.5rem 1.5rem
+        p
+            padding: 1rem 1rem
+
+        .stars
+            margin: 0.5rem 1rem
+            size: 0.8rem
+            letter-spacing: 3px
+            color: $medium-color
+
+.footer
+    padding: 70px 0
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    &-header
+        display: flex
+        align-items: center
+        margin-bottom: 70px
+
+        .logo
+            border: 3px solid #d3ab55
+            border-radius: 50%
+            margin-right: 20px
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 90px
+            height: 90px
+            font-size: 30px
+            border-width: 2px
+
+            img
+                width: 110px
+                height: 110px
+
+    .main-name
+        @include brand-h1
+        font-family: "Nunito", sans-serif
+        padding-top: 0.1rem
+
+    .sub-name
+        @include brand-p
+        font-family: "Josefin Sans", sans-serif
+        text-align: center
+
+    .social
+        display: flex
+        width: 300px
+        justify-content: space-between
+        margin-bottom: 70px
+        font-size: 0.7rem
+
+        i
+            color: $light-color
+
+            &:hover
+                color: $medium-color
+
+.footer-copyright-paragraph
+    font-family: "Josefin Sans", sans-serif
+    font-size: 18px
+    color: $light-color
+    font-weight: 300
+    letter-spacing: 2px

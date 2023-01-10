@@ -1,0 +1,34 @@
+.gallery .cards-wrapper
+    display: flex
+    flex-wrap: wrap
+
+.card-overlay, .card-img
+    width: 100%
+    height: 100%
+
+.card
+    width: 33.3333%
+    height: 30vw
+    position: relative
+    overflow: hidden
+
+.card:hover .card-overlay
+    left: 0
+
+.card-overlay
+    position: absolute
+    top: 0
+    left: -100%
+    background-color: $medium-color
+    opacity: 0.6
+    color: #ffffff
+    z-index: 10
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    transition: left 0.7s
+
+.card-img
+    object-fit: cover
+    opacity: 0.5
